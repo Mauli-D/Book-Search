@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import TableComponent from "./tableComponent";
-import { handleSearch } from "../utils/searchbook";
+import { handleSearch } from "../utils/searchBook";
 
 const Book = () => {
     const [text, setText] = useState('');
