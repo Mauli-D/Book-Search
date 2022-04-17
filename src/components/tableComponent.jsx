@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { handleSorting } from "../utils/sortField";
+import Pagination from "./pagination";
+import TableData from "./tableData";
 
 const TableComponent = (props) => {
-    const matches = props.matches;
     const [sortField, setSortField] = useState("");
     const [order, setOrder] = useState("asc");
     const columns = [
@@ -11,40 +12,32 @@ const TableComponent = (props) => {
         { label: "Author", accessor: "author_name", sortable: false },
         { label: "Publish Date", accessor: "publish_date", sortable: true },
     ];
-    
+
     const handleSortingChange = (accessor) => {
         const sortOrder =
             accessor === sortField && order === "asc" ? "desc" : "asc";
         setSortField(accessor);
         setOrder(sortOrder);
-        handleSorting({sortField : accessor, sortOrder, setMatches : props.setMatches, matches});
+        handleSorting({ sortField: accessor, sortOrder, setMatches: props.setMatches, matches: props.matches });
     };
-    
-    return <table>
-        <thead>
-            <tr>
-                {columns.map(({ label, accessor, sortable }) => {
-                    return <th key={accessor} className={`col-3 ${sortable ? `${sortField === accessor && order === "asc" ? `sort-asc-${accessor}` : `sort-desc-${accessor}`}` : ``}`} onClick={sortable ? () => handleSortingChange(accessor) : null}>{label}</th>;
-                })}
-            </tr>
-        </thead>
-        <tbody>
-            {matches && matches.map((match, i) => (
-                <tr key={i}>
-                    <td>{match.title}</td>
-                    <td>{match.cover_i}</td>
-                    <td>{match.author_name && match.author_name.map((author, i) => (
-                        <span key={i}>{(i ? ', ' : '') + author}</span>
-                    ))}
-                    </td>
-                    <td>{match.publish_date && match.publish_date.map((date, i) => (
-                        <span key={i}>{(i ? ', ' : '') + date}</span>
-                    ))}
-                    </td>
-                </tr>
-            ))}
-        </tbody>
-    </table>
+
+    return <>
+        <div className="table">
+            <div className="table-body">
+                <div className="table-row">
+                    {columns.map(({ label, accessor, sortable }) => {
+                        return <div key={accessor} className={`col-3 table-head-data ${sortable ? `${sortField === accessor && order === "asc" ? `sort-asc-${accessor}` : `sort-desc-${accessor}`}` : ``}`} onClick={sortable ? () => handleSortingChange(accessor) : null}>{label}</div>;
+                    })}
+                </div>
+                <Pagination
+                    data={props.matches}
+                    RenderComponent={TableData}
+                    pageLimit={5}
+                    dataLimit={10}
+                />
+            </div>
+        </div>
+    </>
 }
 
 export default TableComponent
