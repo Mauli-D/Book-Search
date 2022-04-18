@@ -1,9 +1,11 @@
 1. How long did you spend on the coding assignment? 
     - What would you add to your solution if you had more time?
     - If you didn't spend much time on the coding test, then use this as an opportunity to explain what you would add.
+
 Ans. It took about 5 hours to complete this task. If I have more time, I would like to add wildcard search and autocomplete to my book search. I'd have also added lazy loading to the search feature so that data can only be loaded when redirected to a page.
 
 2. What was the most useful feature that was added to the latest version of your chosen language? Please include a snippet of code that shows how you've used it.
+
 Ans. optional chaining is the best feture I like in javascript which prevents program from failing for undifined data.
 
 	```
@@ -16,12 +18,15 @@ Ans. optional chaining is the best feture I like in javascript which prevents pr
 	}
 	```
 3. How would you track down a performance issue in production? Have you ever had to do this?
+
 Ans. Performance issues are tracked in production via logs. You can also use third-party tools such as New Relic to avoid frontend errors. UAT testing and automated testing are other methods for testing the production side.
 
 4. How would you improve the API that you just used?
+
 Ans. By adding an offset to the API so that you can get a subset of the data at once, you can get the data faster and only get the amount of data you need at that point.
 
 5. Please describe yourself using correctly formatted JSON.
+
 Ans. {
 		"first_name": "Maulika",
 		"last_name": "Desai",
