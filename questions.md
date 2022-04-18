@@ -6,6 +6,15 @@ Ans. It took about 5 hours to complete this task. If I have more time, I would l
 2. What was the most useful feature that was added to the latest version of your chosen language? Please include a snippet of code that shows how you've used it.
 Ans. optional chaining is the best feture I like in javascript which prevents program from failing for undifined data.
 
+	```
+	export const AssociateModal = () => {  
+		const userData = useSelector((state) => state.SmartForms[SmartformType.CMS_HCP_EDIT]?.Translator?._dictionary);    
+		const selectedHcpSafeId = useSelector((state) => state.Hcp?.User?.UserSafeId);    
+		const show = useSelector((state) => state.Hcp?.ShowAssociateHcpModal);
+		const active = useSelector((state) => state.Hcp?.Active);
+		return ()
+	}
+	```
 3. How would you track down a performance issue in production? Have you ever had to do this?
 Ans. Performance issues are tracked in production via logs. You can also use third-party tools such as New Relic to avoid frontend errors. UAT testing and automated testing are other methods for testing the production side.
 
