@@ -47,7 +47,6 @@ const Pagination = ({ data, RenderComponent, pageLimit, dataLimit }) => {
           onClick={changePage}
           className={`paginationItem ${currentPage === item ? 'active' : null}`}
         >
-          {console.log(item)}
           <span>{item}</span>
         </button>
       ))}

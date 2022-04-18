@@ -6,7 +6,11 @@ const TableData = (props) => {
     } = props && props.data
     return <div className="table-row">
         <div className="table-body-data col-3">{title}</div>
-        <div className="table-body-data col-3">{cover_i}</div>
+        <div className="table-body-data col-3">
+            {cover_i &&
+                <img className="image" src={`https://covers.openlibrary.org/b/id/${cover_i}.jpg`} alt="cover_image" />
+            }
+        </div>
         <div className="table-body-data col-3">{author_name && author_name.map((author, i) => (
             <span key={i}>{(i ? ', ' : '') + author}</span>
         ))}
