@@ -27,7 +27,9 @@ Ans. By adding an offset to the API so that you can get a subset of the data at 
 
 5. Please describe yourself using correctly formatted JSON.
 
-Ans. {
+Ans. 
+```
+{
 		"first_name": "Maulika",
 		"last_name": "Desai",
 		"label": "Full-stack Developer at meshMD Inc.",
@@ -82,3 +84,4 @@ Ans. {
 			}
 		]
 	}
+```
